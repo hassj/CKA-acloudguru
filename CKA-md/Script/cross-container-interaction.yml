@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata: sidecar-pod
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sh", "-c", "while true; do echo logs data > /output/output.log; sleep 5; done"]
+    volumeMounts:
+    - name: shared-vol
+      mountPoint: /output
+  
+  - name: sidecar
+    image: busybox
+    command: ["sh", "-c", "tail -f /intput/input.log"]
+    volumeMounts:
+    - name: shared-vol
+      mountPoint: /input/
+
+  volumes:
+  - name: shared-vol
+    emptyDir: {}

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+spec:
+  metadata:
+    name: my-static-pod
+  containers:
+  - name: 
+    image: acgorg/beebox-diagnostic:1
+    ports: 
+    - containerPorts: 80

@@ -1,0 +1,14 @@
+apiVesion: v1
+kind: Pod
+metadata: rediness-pod
+spec:
+  restartPolicy: On-failure
+  containers:
+  - name: nginx-pod
+    image: nginx:1.19.1
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 5
+      periodSeconds: 5

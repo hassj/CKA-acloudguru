@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+  labels:
+  - app: nginx
+spec:
+  containers:
+  - ...
+    env:
+    - name: ENV
+      valueFrom:
+        configMapKeyRef:
+          name: my-configmap
+          key: key1

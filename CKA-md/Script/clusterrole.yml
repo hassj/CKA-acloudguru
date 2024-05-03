@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+#  namespace ommitted cause clusterrole are not namespaced
+  name: my-clusterrole
+rules:
+- apiGroups: [""]
+  resources: ["secret"]
+  verbs: ["get", "watch", "list"]
