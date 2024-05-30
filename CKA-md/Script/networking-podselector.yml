@@ -1,0 +1,7 @@
+---
+spec:
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app: db

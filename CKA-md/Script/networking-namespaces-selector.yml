@@ -1,0 +1,7 @@
+---
+spec:
+  ingress: 
+  - from:
+    -  nameSpaceSelector:
+         matchLabels:
+           app: db

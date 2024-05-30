@@ -1,0 +1,8 @@
+---
+spec:
+  ingress:
+  - from:
+    ports:
+      - protocol: TCP
+        port: 80 
+      
