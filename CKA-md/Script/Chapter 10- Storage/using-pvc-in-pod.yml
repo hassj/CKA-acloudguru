@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-pvc
+spec:
+  containers:
+  - name: my-pod
+    image: busybox
+    command: ['sh', '-c', 'while true; do echo success >> /output/test.txt ; sleep 5; done']
+    volumeMounts:
+    - name: my-volume
+      mountPath: /output
+  volumes:
+  - name: my-volume
+    persistentVolumeClaim:
+      claimName: my-pvc     // use exactly name defined in pvc manifest

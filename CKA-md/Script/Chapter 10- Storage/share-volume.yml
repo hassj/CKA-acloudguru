@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+  - name: first-container
+    image: nginx.1.19
+    volumeMounts:
+    - name: my-volume
+      mountPath: /output
+  - name: second-container
+    image: nginx.1.19
+    volumeMounts:
+    - name: my-volume
+      mountPath: /input
+  volumes:
+  - name: my-volume
+    emptyDir: {}
